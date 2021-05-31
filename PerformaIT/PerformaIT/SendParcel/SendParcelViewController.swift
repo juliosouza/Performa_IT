@@ -8,39 +8,51 @@
 import UIKit
 
 class SendParcelViewController: UIViewController {
-
-    @IBOutlet weak var tableParcelSize: UITableView!
     
-    var valor:Array<String> = ["valor 1", "valor 2", "valor 3", "valor 4"]
+    
+    @IBOutlet weak var viewSmall: UIView!
+    @IBOutlet weak var viewMedium: UIView!
+    @IBOutlet weak var viewLarge: UIView!
+    @IBOutlet weak var viewCustom: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableParcelSize.dataSource = self
-        self.tableParcelSize.delegate = self
+        setupViews()
     }
+    
+    @IBAction func parcelSmall(_ sender: Any) {
+        let package = Package(size: .small, description: "max alguma coisa", sizeDescription: "cabe envelope")
+        self.performSegue(withIdentifier: "cadSegue", sender: package)
+    }
+    
+    @IBAction func parcelMedium(_ sender: Any) {
+        let package = Package(size: .medium, description: "max alguma coisa", sizeDescription: "cabe envelope")
+        self.performSegue(withIdentifier: "cadSegue", sender: package)
+    }
+    
+    @IBAction func parcelLarge(_ sender: Any) {
+        print("teste large button")
+    }
+    
 
+    @IBAction func parcelCustom(_ sender: Any) {
+        print("teste custom button")
+    }
     
-}
+    func setupViews() {
+        viewSmall.addShadow()
+        viewMedium.addShadow()
+        viewLarge.addShadow()
+        viewCustom.addShadow()
+    }
+    // MARK: - Navigation
 
-extension SendParcelViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellParcelSize") as! CellParcelSize
-//        cell.configureCell(index: indexPath.row)
-
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cadSegue" {
+            if let selectedPackage = sender as? Package {
+                let cadViewController = segue.destination as! CadSendParcelViewController
+                cadViewController.package = selectedPackage
+            }
+        }
     }
 }

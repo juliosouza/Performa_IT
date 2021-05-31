@@ -16,7 +16,9 @@
 		F744078426531E8000F1587C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F744078226531E8000F1587C /* LaunchScreen.storyboard */; };
 		F744078E26535CC700F1587C /* SendParcelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F744078D26535CC700F1587C /* SendParcelViewController.swift */; };
 		F744079226535D3700F1587C /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F744079126535D3700F1587C /* CenterViewController.swift */; };
-		F744079926560D9700F1587C /* CellParcelSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F744079826560D9700F1587C /* CellParcelSize.swift */; };
+		F753262626634B4D00B41287 /* CellEncomenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753262526634B4D00B41287 /* CellEncomenda.swift */; };
+		F753262A2664468000B41287 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75326292664468000B41287 /* Package.swift */; };
+		F753262E266459C700B41287 /* PerformaIT+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753262D266459C700B41287 /* PerformaIT+UIView.swift */; };
 		F767E996265D9CB300A17944 /* CadSendParcelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F767E995265D9CB300A17944 /* CadSendParcelViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +34,9 @@
 		F744078526531E8000F1587C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F744078D26535CC700F1587C /* SendParcelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendParcelViewController.swift; sourceTree = "<group>"; };
 		F744079126535D3700F1587C /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
-		F744079826560D9700F1587C /* CellParcelSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellParcelSize.swift; sourceTree = "<group>"; };
+		F753262526634B4D00B41287 /* CellEncomenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellEncomenda.swift; sourceTree = "<group>"; };
+		F75326292664468000B41287 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F753262D266459C700B41287 /* PerformaIT+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PerformaIT+UIView.swift"; sourceTree = "<group>"; };
 		F767E995265D9CB300A17944 /* CadSendParcelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadSendParcelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +70,7 @@
 		F744077326531E7D00F1587C /* PerformaIT */ = {
 			isa = PBXGroup;
 			children = (
+				F753262C2664597F00B41287 /* Extensions */,
 				F767E994265CC8D300A17944 /* View */,
 				F767E993265CC8BB00A17944 /* Center */,
 				F767E992265CC85D00A17944 /* SendParcel */,
@@ -80,10 +85,19 @@
 			path = PerformaIT;
 			sourceTree = "<group>";
 		};
+		F753262C2664597F00B41287 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F753262D266459C700B41287 /* PerformaIT+UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F767E991265CC82400A17944 /* MyParcels */ = {
 			isa = PBXGroup;
 			children = (
 				F744077826531E7D00F1587C /* MyParcelsViewController.swift */,
+				F753262526634B4D00B41287 /* CellEncomenda.swift */,
 			);
 			path = MyParcels;
 			sourceTree = "<group>";
@@ -92,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				F744078D26535CC700F1587C /* SendParcelViewController.swift */,
-				F744079826560D9700F1587C /* CellParcelSize.swift */,
 				F767E995265D9CB300A17944 /* CadSendParcelViewController.swift */,
+				F75326292664468000B41287 /* Package.swift */,
 			);
 			path = SendParcel;
 			sourceTree = "<group>";
@@ -184,9 +198,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F744079926560D9700F1587C /* CellParcelSize.swift in Sources */,
+				F753262626634B4D00B41287 /* CellEncomenda.swift in Sources */,
+				F753262E266459C700B41287 /* PerformaIT+UIView.swift in Sources */,
 				F744077F26531E7D00F1587C /* PerformaIT.xcdatamodeld in Sources */,
 				F744077926531E7D00F1587C /* MyParcelsViewController.swift in Sources */,
+				F753262A2664468000B41287 /* Package.swift in Sources */,
 				F744077526531E7D00F1587C /* AppDelegate.swift in Sources */,
 				F767E996265D9CB300A17944 /* CadSendParcelViewController.swift in Sources */,
 				F744079226535D3700F1587C /* CenterViewController.swift in Sources */,

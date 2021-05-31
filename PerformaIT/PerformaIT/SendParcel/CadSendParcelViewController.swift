@@ -8,12 +8,22 @@
 import UIKit
 import CoreData
 
+protocol CadSendParcelDelegate {
+    
+}
+
 class CadSendParcelViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var telefoneTextField: UITextField!
     @IBOutlet weak var enderecoTextField: UITextField!
+    @IBOutlet weak var finalizarButton: UIButton!
+    @IBOutlet weak var viewFinalizarButton: UIView!
+    @IBOutlet weak var viewFromDoor: UIView!
+    @IBOutlet weak var viewDoorToDoor: UIView!
+    
+    var package: Package?
     
     var contexto:NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -22,10 +32,19 @@ class CadSendParcelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewFinalizarButton.layer.cornerRadius = 5
+        setupViews()
+    }
+    
+    func setupViews() {
+        viewFromDoor.addShadow()
+        viewDoorToDoor.addShadow()
     }
     
     @IBAction func finalizarButton(_ sender: Any) {
         let encomenda = Encomenda(context: contexto)
+        encomenda.numencomenda = "0000074123"
+        encomenda.status = Int32(Int.random(in: 1...4))
         encomenda.nome = nameTextField.text
         encomenda.email = emailTextField.text
         encomenda.telefone = telefoneTextField.text
@@ -33,19 +52,22 @@ class CadSendParcelViewController: UIViewController {
         
         do {
             try contexto.save()
-            print("sucesso")
+            showAlert(message: "Cadastro realizado com sucesso!")
         } catch {
-            print("erro")
+            showAlert(message: "Erro ao cadastrar encomenda!")
         }
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func showAlert(message: String) {
+        let alerta = UIAlertController(title: message, message: "", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: { reset in
+            self.nameTextField.text = ""
+            self.emailTextField.text = ""
+            self.telefoneTextField.text = ""
+            self.enderecoTextField.text = ""
+        })
+        alerta.addAction(okButton)
+        present(alerta, animated: true, completion: nil)
     }
-    */
-
 }
